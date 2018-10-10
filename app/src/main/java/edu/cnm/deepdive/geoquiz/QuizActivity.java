@@ -17,6 +17,10 @@ public class QuizActivity extends AppCompatActivity {
   private Button mFalseButton;
   private Button mNextButton;
   private TextView mQuestionTextView;
+  private TextView correctTally;
+  private TextView incorrectTally;
+  private int correct;
+  private int incorrect;
 
 private Question [] mQuestionBank = new Question[]{
     new Question(R.string.question_australia, true),
@@ -34,7 +38,8 @@ private int mCurrentIndex = 0;
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_quiz);
-
+    correctTally = findViewById(R.id.correct_tally);
+    incorrectTally = findViewById(R.id.incorrect_tally);
     mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
 
 
@@ -44,6 +49,7 @@ private int mCurrentIndex = 0;
       public void onClick(View v) {
         checkAnswer(true);
       }
+
     });
 
     mFalseButton = (Button) findViewById(R.id.false_button);
@@ -60,6 +66,7 @@ private int mCurrentIndex = 0;
       public void onClick(View v){
         mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
         updateQuestion();
+
       }
     });
     updateQuestion();
@@ -67,7 +74,8 @@ private int mCurrentIndex = 0;
   private void updateQuestion(){
     int question = mQuestionBank[mCurrentIndex].getTextResId();
     mQuestionTextView.setText(question);
-
+    correctTally.setText(getString(R.string.correct_tally_format, correct));
+    incorrectTally.setText(getString(R.string.incorrect_tally_format, incorrect));
   }
 
   private void checkAnswer(boolean userPressedTrue) {
@@ -77,8 +85,12 @@ private int mCurrentIndex = 0;
 
     if (userPressedTrue == answerIsTrue) {
       messageResId = R.string.correct_toast;
+      correct++;
+
     }else {
       messageResId = R.string.incorrect_toast;
+      incorrect++;
+
     }
     Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
         .show();

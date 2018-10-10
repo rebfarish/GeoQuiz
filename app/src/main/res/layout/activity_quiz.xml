@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:padding="@dimen/layout_padding"
+  tools:context=".QuizActivity">
+
+
+
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
@@ -6,6 +17,22 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   android:gravity="center"
   android:orientation="vertical">
+
+  <TextView
+    android:id="@+id/correct_tally"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    style = "@style/CorrectTally"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"/>
+
+  <TextView
+    android:id="@+id/incorrect_tally"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    style = "@style/IncorrectTally"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintRight_toRightOf="parent"/>
 
   <TextView
     android:id="@+id/question_text_view"
@@ -42,20 +69,6 @@
     android:drawableRight="@drawable/arrow_right"
     android:drawablePadding="4dp"/>
 
-  <TextView
-    android:id="@+id/correct_tally"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    style = "@style/CorrectTally"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"/>
-
-  <TextView
-    android:id="@+id/incorrect_tally"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    style = "@style/IncorrectTally"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintRight_toRightOf="parent"/>
 
 </LinearLayout>
+</android.support.constraint.ConstraintLayout>
