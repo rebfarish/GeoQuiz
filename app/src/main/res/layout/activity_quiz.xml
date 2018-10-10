@@ -3,14 +3,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   android:gravity="center"
   android:orientation="vertical">
 
   <TextView
+    android:id="@+id/question_text_view"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:textAlignment="center"
     android:padding="24dp"
-    android:text="@string/question_text"/>
+    />
 
   <LinearLayout
     android:layout_width="wrap_content"
@@ -30,4 +33,29 @@
       android:text="@string/false_button"/>
 
   </LinearLayout>
+
+  <Button
+    android:id="@+id/next_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/next_button"
+    android:drawableRight="@drawable/arrow_right"
+    android:drawablePadding="4dp"/>
+
+  <TextView
+    android:id="@+id/correct_tally"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    style = "@style/CorrectTally"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"/>
+
+  <TextView
+    android:id="@+id/incorrect_tally"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    style = "@style/IncorrectTally"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintRight_toRightOf="parent"/>
+
 </LinearLayout>
