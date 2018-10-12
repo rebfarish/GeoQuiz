@@ -8,21 +8,11 @@
   android:padding="@dimen/layout_padding"
   tools:context=".QuizActivity">
 
-
-
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  android:gravity="center"
-  android:orientation="vertical">
-
   <TextView
     android:id="@+id/correct_tally"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    style = "@style/CorrectTally"
+    style="@style/CorrectTally"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintLeft_toLeftOf="parent"/>
 
@@ -30,45 +20,60 @@
     android:id="@+id/incorrect_tally"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    style = "@style/IncorrectTally"
+    style="@style/IncorrectTally"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintRight_toRightOf="parent"/>
-
-  <TextView
-    android:id="@+id/question_text_view"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textAlignment="center"
-    android:padding="24dp"
-    />
-
-  <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-
-    <Button
-      android:id="@+id/true_button"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="@string/true_button"/>
-
-    <Button
-      android:id="@+id/false_button"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="@string/false_button"/>
-
-  </LinearLayout>
 
   <Button
     android:id="@+id/next_button"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/next_button"
+    android:textAlignment="center"
     android:drawableRight="@drawable/arrow_right"
-    android:drawablePadding="4dp"/>
+    android:drawablePadding="4dp"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"/>
+
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical">
 
 
-</LinearLayout>
+    <TextView
+      android:id="@+id/question_text_view"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textAlignment="center"
+      style="@style/QuestionText"
+      android:padding="24dp"
+      />
+
+    <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+
+      <Button
+        android:id="@+id/true_button"
+        android:layout_width="160dip"
+        android:layout_height="80dip"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_shape"
+        android:text="@string/true_button"/>
+
+      <Button
+        android:id="@+id/false_button"
+        android:layout_width="160dip"
+        android:layout_height="80dip"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_shape"
+        android:text="@string/false_button"/>
+
+    </LinearLayout>
+  </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
